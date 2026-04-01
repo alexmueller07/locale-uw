@@ -1,1 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Locale — UW Madison</title>
+<script defer src="/_vercel/insights/script.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+  :root {
+    --red: #C5050C;
+    --red-dark: #9B0000;
+    --cream: #F9F6F0;
+    --charcoal: #1A1A1A;
+    --muted: #6B6B6B;
+    --border: rgba(0,0,0,0.1);
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2.5rem;
+    position: relative;
+    z-index: 10;
+  }
+
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.3rem;
+    letter-spacing: -0.02em;
+    color: var(--red);
+  }
+
+  .logo span {
+    color: var(--charcoal);
+    font-weight: 400;
+  }
+
+  .badge {
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: var(--red);
+    color: white;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .hero {
+    position: relative;
+    z-index: 5;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 5rem 2rem 3rem;
+    text-align: center;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.5rem;
+  }
+
+  .eyebrow::before, .eyebrow::after {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--muted);
+  }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.8rem, 8vw, 5rem);
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    color: var(--charcoal);
+    margin-bottom: 1.5rem;
+  }
+
+  h1 em {
+    color: var(--red);
+    font-style: normal;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+    font-weight: 300;
+  }
+
+  .tally-btn {
+    display: inline-block;
+    padding: 0.95rem 2.25rem;
+    background: var(--red);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.1s;
+    margin-bottom: 0.75rem;
+  }
+
+  .tally-btn:hover { background: var(--red-dark); }
+  .tally-btn:active { transform: scale(0.98); }
+
+  .microcopy {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: 0.5rem;
+  }
+
+  .mockup {
+    position: relative;
+    z-index: 5;
+    max-width: 680px;
+    margin: 3rem auto 0;
+    padding: 0 1.5rem;
+  }
+
+  .phone-frame {
+    background: white;
+    border-radius: 24px;
+    border: 1.5px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  }
+
+  .phone-header {
+    background: var(--red);
+    padding: 1rem 1.25rem 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .phone-header-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  .phone-header-text h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: white;
+  }
+
+  .phone-header-text p {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .online-dot {
+    width: 7px;
+    height: 7px;
+    background: #4ade80;
+    border-radius: 50%;
+    margin-left: auto;
+    box-shadow: 0 0 0 2px rgba(74,222,128,0.3);
+  }
+
+  .chat-body {
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-height: 240px;
+  }
+
+  .msg {
+    display: flex;
+    flex-direction: column;
+    max-width: 72%;
+    gap: 0.2rem;
+  }
+
+  .msg.other { align-self: flex-start; }
+  .msg.me { align-self: flex-end; }
+
+  .msg-name {
+    font-size: 0.68rem;
+    color: var(--muted);
+    font-weight: 500;
+    padding-left: 4px;
+  }
+
+  .msg-bubble {
+    padding: 0.55rem 0.9rem;
+    border-radius: 16px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .msg.other .msg-bubble {
+    background: #F1EEE8;
+    color: var(--charcoal);
+    border-bottom-left-radius: 4px;
+  }
+
+  .msg.me .msg-bubble {
+    background: var(--red);
+    color: white;
+    border-bottom-right-radius: 4px;
+  }
+
+  .chat-input-bar {
+    border-top: 1px solid var(--border);
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .chat-input-fake {
+    flex: 1;
+    height: 36px;
+    background: #F1EEE8;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    font-size: 0.82rem;
+    color: #aaa;
+  }
+
+  .send-btn {
+    width: 32px;
+    height: 32px;
+    background: var(--red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .features {
+    position: relative;
+    z-index: 5;
+    max-width: 780px;
+    margin: 4rem auto 0;
+    padding: 0 1.5rem 5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .feature-card {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    padding: 1.25rem;
+  }
+
+  .feature-icon {
+    width: 36px;
+    height: 36px;
+    background: #FEF0F0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    margin-bottom: 0.75rem;
+  }
+
+  .feature-card h4 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.35rem;
+    color: var(--charcoal);
+  }
+
+  .feature-card p {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .counter-bar {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    padding: 1rem 2rem 0;
+  }
+
+  #counter-display {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 2.5rem;
+    color: var(--red);
+    line-height: 1;
+  }
+
+  .counter-label {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 0.25rem;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">locale<span>.uw</span></div>
+  <div class="badge">Early Access</div>
+</nav>
+
+<section class="hero">
+  <div class="eyebrow">UW Madison · Coming Soon</div>
+  <h1>Talk to who's <em>actually</em> around you</h1>
+  <p class="subtitle">Locale is a live chat for wherever you are on campus right now. Memorial Union, College Library, your dorm — see what's happening and join the conversation.</p>
+
+  <a class="tally-btn" href="https://tally.so/r/rjLKQl" target="_blank">Get early access</a>
+  <p class="microcopy">No spam. Just a ping when we launch. 🦡</p>
+</section>
+
+<div class="counter-bar">
+  <div id="counter-display">0</div>
+  <div class="counter-label">Badgers already in</div>
+</div>
+
+<div class="mockup">
+  <div class="phone-frame">
+    <div class="phone-header">
+      <div class="phone-header-icon">📍</div>
+      <div class="phone-header-text">
+        <h3>Memorial Union</h3>
+        <p>23 people here right now</p>
+      </div>
+      <div class="online-dot"></div>
+    </div>
+    <div class="chat-body">
+      <div class="msg other">
+        <div class="msg-name">anon badger</div>
+        <div class="msg-bubble">anyone know if the terrace is packed rn or nah</div>
+      </div>
+      <div class="msg other">
+        <div class="msg-name">anon badger</div>
+        <div class="msg-bubble">just grabbed a spot by the lake, its perfect out here 🌊</div>
+      </div>
+      <div class="msg me">
+        <div class="msg-bubble">omg saving me a seat pls</div>
+      </div>
+      <div class="msg other">
+        <div class="msg-name">anon badger</div>
+        <div class="msg-bubble">anyone else here for the econ study grind or just me 💀</div>
+      </div>
+      <div class="msg me">
+        <div class="msg-bubble">same. send help</div>
+      </div>
+    </div>
+    <div class="chat-input-bar">
+      <div class="chat-input-fake">Message Memorial Union...</div>
+      <div class="send-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+          <path d="M22 2L11 13" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="features">
+  <div class="feature-card">
+    <div class="feature-icon">📍</div>
+    <h4>By location</h4>
+    <p>A chat room for every building on campus. Jump in wherever you are.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">⚡</div>
+    <h4>Live right now</h4>
+    <p>See what's actually happening around you — not posts from 3 days ago.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🎭</div>
+    <h4>Anonymous-ish</h4>
+    <p>No real names. Just you and whoever else is in the building.</p>
+  </div>
+</div>
+
+<script>
+  let count = 0;
+  function animateCounter(target) {
+    const el = document.getElementById('counter-display');
+    const duration = 800;
+    const start = count;
+    const diff = target - start;
+    const startTime = performance.now();
+    function update(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(start + diff * eased);
+      if (progress < 1) requestAnimationFrame(update);
+      else count = target;
+    }
+    requestAnimationFrame(update);
+  }
+  animateCounter(47);
+</script>
+
+</body>
+</html>
