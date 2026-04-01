@@ -4,7 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Locale — UW Madison</title>
+
+<!-- Vercel Analytics for plain HTML sites -->
+<script>
+window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
 <script defer src="/_vercel/insights/script.js"></script>
+
+<!-- Tally popup embed -->
+<script async src="https://tally.so/widgets/embed.js"></script>
+
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -43,10 +52,7 @@
     color: var(--red);
   }
 
-  .logo span {
-    color: var(--charcoal);
-    font-weight: 400;
-  }
+  .logo span { color: var(--charcoal); font-weight: 400; }
 
   .badge {
     font-size: 0.75rem;
@@ -98,10 +104,7 @@
     margin-bottom: 1.5rem;
   }
 
-  h1 em {
-    color: var(--red);
-    font-style: normal;
-  }
+  h1 em { color: var(--red); font-style: normal; }
 
   .subtitle {
     font-size: 1.1rem;
@@ -179,10 +182,7 @@
     color: white;
   }
 
-  .phone-header-text p {
-    font-size: 0.72rem;
-    color: rgba(255,255,255,0.7);
-  }
+  .phone-header-text p { font-size: 0.72rem; color: rgba(255,255,255,0.7); }
 
   .online-dot {
     width: 7px;
@@ -305,11 +305,7 @@
     color: var(--charcoal);
   }
 
-  .feature-card p {
-    font-size: 0.82rem;
-    color: var(--muted);
-    line-height: 1.6;
-  }
+  .feature-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
 
   .counter-bar {
     position: relative;
@@ -345,10 +341,16 @@
 <section class="hero">
   <div class="eyebrow">UW Madison · Coming Soon</div>
   <h1>Talk to who's <em>actually</em> around you</h1>
-  <p class="subtitle">Locale is a live chat for wherever you are on campus right now. Memorial Union, College Library, your dorm — see what's happening and join the conversation.</p>
+  <p class="subtitle">Locale is a fully anonymous live chat for wherever you are on campus right now. Memorial Union, College Library, your dorm — see what's happening and join the conversation.</p>
 
-  <a class="tally-btn" href="https://tally.so/r/rjLKQl" target="_blank">Get early access</a>
-  <p class="microcopy">No spam. Just a ping when we launch. 🦡</p>
+  <button
+    class="tally-btn"
+    data-tally-open="rjLKQl"
+    data-tally-overlay="1"
+    data-tally-emoji-text="🦡"
+    data-tally-emoji-animation="wave"
+  >Get early access</button>
+  <p class="microcopy">Fully anonymous. No account needed. Just a ping when we launch. 🦡</p>
 </section>
 
 <div class="counter-bar">
@@ -362,28 +364,29 @@
       <div class="phone-header-icon">📍</div>
       <div class="phone-header-text">
         <h3>Memorial Union</h3>
-        <p>23 people here right now</p>
+        <p>31 people here right now</p>
       </div>
       <div class="online-dot"></div>
     </div>
     <div class="chat-body">
       <div class="msg other">
-        <div class="msg-name">anon badger</div>
-        <div class="msg-bubble">anyone know if the terrace is packed rn or nah</div>
+        <div class="msg-name">Wandering Badger</div>
+        <div class="msg-bubble">bro the line at der rathskeller is insane rn do not come</div>
       </div>
       <div class="msg other">
-        <div class="msg-name">anon badger</div>
-        <div class="msg-bubble">just grabbed a spot by the lake, its perfect out here 🌊</div>
+        <div class="msg-name">Sleepy Otter</div>
+        <div class="msg-bubble">terrace or study room on 3rd floor, go</div>
       </div>
       <div class="msg me">
-        <div class="msg-bubble">omg saving me a seat pls</div>
+        <div class="msg-bubble">terrace obv its 70 degrees out wtf</div>
       </div>
       <div class="msg other">
-        <div class="msg-name">anon badger</div>
-        <div class="msg-bubble">anyone else here for the econ study grind or just me 💀</div>
+        <div class="msg-name">Wandering Badger</div>
+        <div class="msg-bubble">anyone got a phone charger i will literally venmo you $2</div>
       </div>
-      <div class="msg me">
-        <div class="msg-bubble">same. send help</div>
+      <div class="msg other">
+        <div class="msg-name">Midnight Falcon</div>
+        <div class="msg-bubble">lmaooo come to the info desk they have one</div>
       </div>
     </div>
     <div class="chat-input-bar">
@@ -411,8 +414,8 @@
   </div>
   <div class="feature-card">
     <div class="feature-icon">🎭</div>
-    <h4>Anonymous-ish</h4>
-    <p>No real names. Just you and whoever else is in the building.</p>
+    <h4>Fully anonymous</h4>
+    <p>No account, no real name. You get a random name every session.</p>
   </div>
 </div>
 
